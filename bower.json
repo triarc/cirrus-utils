@@ -1,6 +1,6 @@
 {
   "name": "cirrus-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Marco Bachmann <mb@triarc-labs.com>"
   ],
@@ -17,8 +17,5 @@
     "tests"
   ],
   "endpoint": "https://github.com/triarc/cirrus-utils.git",
-  "dependencies": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.12"
-  }
+  "dependencies": {}
 }
