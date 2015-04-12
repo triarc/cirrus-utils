@@ -89,9 +89,6 @@ var Triarc;
         return returnValue;
     }
     Triarc.getRandomChars = getRandomChars;
-    function dummy() {
-    }
-    Triarc.dummy = dummy;
 })(Triarc || (Triarc = {}));
 var Triarc;
 (function (Triarc) {
@@ -146,3 +143,4 @@ var Triarc;
         Dom.isCloseToBottom = isCloseToBottom;
     })(Dom = Triarc.Dom || (Triarc.Dom = {}));
 })(Triarc || (Triarc = {}));
+

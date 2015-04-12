@@ -13,7 +13,6 @@ declare module Triarc {
     function validFloat(value: any, greaterThan?: number): boolean;
     function validNumber(value: number, greaterThan?: number): boolean;
     function getRandomChars(valueStr: string, numberOf: number): string;
-    function dummy(): void;
 }
 declare module Triarc.Dom {
     function maintainHeightWithWindowSizeHandler(element: JQuery, eventType: string, percentage: number, resizeComponentFn: (totalHeight: number, percentageInPx: number) => void, offsetFactor?: number): number;
