@@ -1,4 +1,8 @@
+interface Window {
+    crypto: any;
+}
 declare module Triarc {
+    var generateGuid: () => string;
     function hasValue(value: any): boolean;
     function hasNoValue(value: any): boolean;
     function isTrue(value?: boolean): boolean;
