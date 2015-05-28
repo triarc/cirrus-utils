@@ -9,6 +9,14 @@ declare module Triarc {
     function getOrdinals(anEnum: any): number[];
     function getEnumValue(anEnum: any, index: number): number;
     function getNames(anEnum: any): string[];
+    module Enum {
+        function getNames(anEnum: any): string[];
+        function getEnumValue(anEnum: any, index: number): number;
+        function getOrdinals(anEnum: any): number[];
+        function containsFlag(flag: number, enumValue: number): boolean;
+        function addFlag(flag: number, enumValue: number): number;
+        function removeFlag(flag: number, enumValue: number): number;
+    }
     function arrayHasValues(array: any): boolean;
     function strContains(str: string, value: string): boolean;
     function randomNumber(start: number, end: number): number;

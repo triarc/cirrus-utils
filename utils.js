@@ -60,6 +60,33 @@ var Triarc;
         return enumNames;
     }
     Triarc.getNames = getNames;
+    var Enum;
+    (function (Enum) {
+        function getNames(anEnum) {
+            return Triarc.getNames(anEnum);
+        }
+        Enum.getNames = getNames;
+        function getEnumValue(anEnum, index) {
+            return Triarc.getEnumValue(anEnum, index);
+        }
+        Enum.getEnumValue = getEnumValue;
+        function getOrdinals(anEnum) {
+            return Triarc.getOrdinals(anEnum);
+        }
+        Enum.getOrdinals = getOrdinals;
+        function containsFlag(flag, enumValue) {
+            return (flag & enumValue) === flag;
+        }
+        Enum.containsFlag = containsFlag;
+        function addFlag(flag, enumValue) {
+            return flag | enumValue;
+        }
+        Enum.addFlag = addFlag;
+        function removeFlag(flag, enumValue) {
+            return (flag ^ enumValue) & enumValue;
+        }
+        Enum.removeFlag = removeFlag;
+    })(Enum = Triarc.Enum || (Triarc.Enum = {}));
     function arrayHasValues(array) {
         return angular.isArray(array) && array.length > 0;
     }
