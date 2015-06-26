@@ -13,6 +13,7 @@ declare module Triarc {
         function getNames(anEnum: any): string[];
         function getEnumValue(anEnum: any, index: number): number;
         function getOrdinals(anEnum: any): number[];
+        function forEach(anEnum: any, callback: (value: number, name: string) => void): void;
         function containsFlag(flag: number, enumValue: number): boolean;
         function addFlag(flag: number, enumValue: number): number;
         function removeFlag(flag: number, enumValue: number): number;
