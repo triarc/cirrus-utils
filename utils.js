@@ -31,49 +31,50 @@ var Triarc;
         return value;
     }
     Triarc.isTrue = isTrue;
-    // next three functions are commted out until breeze allows enums as numeric ordinals again
-    // see: http://breezejs.uservoice.com/forums/173093-1-breezejs-feature-suggestions/suggestions/3853854-json-serialization-of-clr-enum-types-string-numbe
     function getOrdinals(anEnum) {
-        var enumValues = [];
-        for (var val in anEnum) {
-            var type = anEnum[val];
-            if (typeof (type) === "number") {
-                enumValues.push(type);
-            }
-        }
-        return enumValues;
+        return Enum.getOrdinals(anEnum);
     }
     Triarc.getOrdinals = getOrdinals;
     function getEnumValue(anEnum, index) {
-        var ordinals = getOrdinals(anEnum);
-        return ordinals[index];
+        return Enum.getEnumValue(anEnum, index);
     }
     Triarc.getEnumValue = getEnumValue;
     function getNames(anEnum) {
-        var enumNames = [];
-        for (var val in anEnum) {
-            var type = anEnum[val];
-            if (typeof (type) === "string") {
-                enumNames.push(type);
-            }
-        }
-        return enumNames;
+        return Enum.getNames(anEnum);
     }
     Triarc.getNames = getNames;
     var Enum;
     (function (Enum) {
         function getNames(anEnum) {
-            return Triarc.getNames(anEnum);
+            var enumNames = [];
+            Enum.forEach(anEnum, function (val, name) {
+                enumNames.push(name);
+            });
+            return enumNames;
         }
         Enum.getNames = getNames;
         function getEnumValue(anEnum, index) {
-            return Triarc.getEnumValue(anEnum, index);
+            var ordinals = getOrdinals(anEnum);
+            return ordinals[index];
         }
         Enum.getEnumValue = getEnumValue;
         function getOrdinals(anEnum) {
-            return Triarc.getOrdinals(anEnum);
+            var enumValues = [];
+            Enum.forEach(anEnum, function (val, name) {
+                enumValues.push(val);
+            });
+            return enumValues;
         }
         Enum.getOrdinals = getOrdinals;
+        function forEach(anEnum, callback) {
+            for (var val in anEnum) {
+                var name = anEnum[val];
+                if (typeof (name) === "string") {
+                    callback(anEnum[name], name);
+                }
+            }
+        }
+        Enum.forEach = forEach;
         function containsFlag(flag, enumValue) {
             return (flag & enumValue) === flag;
         }
