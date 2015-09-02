@@ -1,12 +1,12 @@
 var Triarc;
 (function (Triarc) {
-    Triarc.generateGuid = (typeof (window.crypto) != 'undefined' &&
-        typeof (window.crypto.getRandomValues) != 'undefined') ?
+    Triarc.generateGuid = (typeof (crypto) != 'undefined' &&
+        typeof (crypto.getRandomValues) != 'undefined') ?
         function () {
             // If we have a cryptographically secure PRNG, use that
             // http://stackoverflow.com/questions/6906916/collisions-when-generating-uuids-in-javascript
             var buf = new Uint16Array(8);
-            window.crypto.getRandomValues(buf);
+            crypto.getRandomValues(buf);
             var S4 = function (num) {
                 var ret = num.toString(16);
                 while (ret.length < 4) {
