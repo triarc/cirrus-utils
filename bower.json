@@ -1,7 +1,9 @@
 {
   "name": "cirrus-utils",
   "version": "0.4.1",
-  "main": "utils.js",
+  "main": [
+    "utils.js"
+  ],
   "moduleType": [
     "globals"
   ],
