@@ -120,7 +120,7 @@ var Triarc;
         return angular.isString(str) && str.length === 0;
     }
     Triarc.strIsEmpty = strIsEmpty;
-    var FLOAT_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
+    var FLOAT_REGEXP = /^(\-|\+)?\d+((\.|\,)\d+)?$/;
     function validFloat(value, greaterThan) {
         return FLOAT_REGEXP.test(value) && (Triarc.hasValue(greaterThan) ? value > 0 : true);
     }
