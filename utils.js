@@ -117,7 +117,7 @@ var Triarc;
     }
     Triarc.strNotEmpty = strNotEmpty;
     function strIsEmpty(str) {
-        return angular.isString(str) && str.length === 0;
+        return !angular.isString(str) || str.length === 0;
     }
     Triarc.strIsEmpty = strIsEmpty;
     var FLOAT_REGEXP = /^(\-|\+)?\d+((\.|\,)\d+)?$/;
